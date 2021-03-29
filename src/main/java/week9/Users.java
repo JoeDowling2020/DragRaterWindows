@@ -24,9 +24,8 @@ public class Users {
         roleDao = new GenericDao(Role.class);
         userDao = new GenericDao(User.class);
         List<Role> roles = roleDao.getAll();
-        List<User> users = userDao.getAll();
         StringBuilder output1 = new StringBuilder();
-        StringBuilder output2 = new StringBuilder();
+
 
 
         for(int i = 0; i < roles.size(); i++) {
