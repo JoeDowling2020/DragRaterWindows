@@ -103,6 +103,18 @@ public class DragQueen {
         this.ratings = ratings;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DragQueen dragQueen = (DragQueen) o;
+        return dragQueenId == dragQueen.dragQueenId && Double.compare(dragQueen.dobScore, dobScore) == 0 && Objects.equals(name, dragQueen.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dragQueenId, name, dobScore);
+    }
 
     @Override
     public String toString() {

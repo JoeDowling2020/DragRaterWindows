@@ -320,6 +320,19 @@ public class Rating {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rating rating = (Rating) o;
+        return reviewId == rating.reviewId && humour == rating.humour && makeup == rating.makeup && hair == rating.hair && fashion == rating.fashion && personality == rating.personality && dancing == rating.dancing && acting == rating.acting && lipsync == rating.lipsync && impersonation == rating.impersonation && lyrics == rating.lyrics && brand == rating.brand;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(reviewId, humour, makeup, hair, fashion, personality, dancing, acting, lipsync, impersonation, lyrics, brand);
+    }
+
+    @Override
     public String toString() {
         return "Rating{" +
                 "reviewId=" + reviewId +
