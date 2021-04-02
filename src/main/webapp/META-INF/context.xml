@@ -2,8 +2,8 @@
 <Context docBase="indieProject2021_war" path="/indieProject2021_war" reloadable="true">
     <Realm className="org.apache.catalina.realm.JDBCRealm"
            driverName="com.mysql.cj.jdbc.Driver"
-           connectionURL="jdbc:mysql://localhost:3306/test?user=tomcat&amp;password=tomcat"
-           userTable="users" userNameCol="username" userCredCol="password"
-           userRoleTable="roles" roleNameCol="role">
+           connectionURL="jdbc:mysql://localhost:3306/sample?user=tomcat&amp;password=tomcat"
+           userTable="user" userNameCol="user_name" userCredCol="password"
+           userRoleTable="user_roles" roleNameCol="role_name" >
     </Realm>
 </Context>

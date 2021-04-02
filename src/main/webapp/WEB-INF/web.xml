@@ -16,7 +16,7 @@
         </form-login-config>
     </login-config>
 
-    <!-- Protect everything in the adminOnly directory -->
+    <!-- Protect everything in the admin directory -->
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>admin</web-resource-name>

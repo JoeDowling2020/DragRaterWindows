@@ -35,8 +35,8 @@ public class User {
     @OneToMany(mappedBy= "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
-//    @OneToMany(mappedBy= "users", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-//    private Set<Rating> ratings = new HashSet<>();
+    @OneToMany(mappedBy= "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Rating> ratings = new HashSet<>();
 
     public User() {
         //Tried and true no arg constructor!
@@ -177,17 +177,17 @@ public class User {
      * Gets the ratings set
      * @return ratings
      */
-//    public Set<Rating> getRatings() {
-//        return ratings;
-//    }
-//
-//    /**
-//     * Sets the ratings set
-//     * @param ratings the ratings set
-//     */
-//    public void setRatings(Set<Rating> ratings) {
-//        this.ratings = ratings;
-//    }
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    /**
+     * Sets the ratings set
+     * @param ratings the ratings set
+     */
+    public void setRatings(Set<Rating> ratings) {
+        this.ratings = ratings;
+    }
 
     /**
      * Gets the role (admin/user) of the user

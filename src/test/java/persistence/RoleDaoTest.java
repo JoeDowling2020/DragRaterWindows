@@ -29,8 +29,9 @@ public class RoleDaoTest {
      */
     @Test
     void getAllRolesSuccess() {
-        List<Role> Roles = genericDao.getAll();
-        logger.debug(Roles);
+        List<Role> roles = genericDao.getAll();
+        assertEquals(6, roles.size());
+        logger.debug(roles);
     }
 
     /**
@@ -50,12 +51,15 @@ public class RoleDaoTest {
     void insertSuccess() {
         userDao = new GenericDao(User.class);
         User user = (User)userDao.getById(1);
-        String roleTitle = "SuperAdmin";
-        Role newRole = new Role(roleTitle, user);
+        String userName = user.getUsername();
+        String roleName = "admin";
+        Role newRole = new Role(user, userName, roleName);
         int id = genericDao.insert(newRole);
         Role insertedRole = (Role)genericDao.getById(id);
-        assertEquals(roleTitle, insertedRole.getRoleTitle());
+        assertEquals(roleName, insertedRole.getRoleTitle());
+        assertEquals(userName, insertedRole.getUsername());
     }
+
 
     /**
      * Verify successful delete of Role
