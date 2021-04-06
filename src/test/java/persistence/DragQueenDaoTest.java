@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class DragQueenDaoTest {
     private final Logger logger = LogManager.getLogger(this.getClass());
-    GenericDao queenDao;
+    GenericDao<DragQueen> queenDao;
     GenericDao ratingDao;
     GenericDao userDao;
 
     @BeforeEach
     void setUp() {
-        queenDao = new GenericDao(DragQueen.class);
+        queenDao = new GenericDao<>(DragQueen.class);
         ratingDao = new GenericDao(Rating.class);
         userDao = new GenericDao(User.class);
         Database database = Database.getInstance();
@@ -45,8 +45,9 @@ public class DragQueenDaoTest {
     @Test
     void insertSuccess() {
         DragQueen newQueen = new DragQueen(4, "Sally Mayo", 6.2);
-        int newId = queenDao.insert(newQueen);
-        DragQueen insertedQueen = (DragQueen)queenDao.getById(newId);
+        int id = queenDao.insert(newQueen);
+        assertNotEquals(0,id);
+        DragQueen insertedQueen = queenDao.getById(id);
         assertEquals(newQueen, insertedQueen);
     }
 

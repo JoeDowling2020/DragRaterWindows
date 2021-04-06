@@ -925,6 +925,7 @@ SELECT|sys.sys_config
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="291" parent="286" name="name">
       <Position>2</Position>
@@ -932,7 +933,7 @@ SELECT|sys.sys_config
     </column>
     <column id="292" parent="286" name="dobScore">
       <Position>3</Position>
-      <DataType>decimal(10)|0s</DataType>
+      <DataType>decimal(5,2 digit)|0s</DataType>
     </column>
     <key id="293" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
