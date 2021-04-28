@@ -44,7 +44,7 @@ public class DragQueenDaoTest {
      */
     @Test
     void insertSuccess() {
-        DragQueen newQueen = new DragQueen(4, "Sally Mayo", 6.2);
+        DragQueen newQueen = new DragQueen(4, "Sally Mayo", 6.0);
         int id = queenDao.insert(newQueen);
         assertNotEquals(0,id);
         DragQueen insertedQueen = queenDao.getById(id);
