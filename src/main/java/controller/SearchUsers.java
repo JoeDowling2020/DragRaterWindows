@@ -13,22 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(
-        name = "index", urlPatterns = {"/index"} )
-
+@WebServlet(name = "UserDisplayServlet", value = "/index")
 public class SearchUsers extends HttpServlet {
-
-    private final Logger logger = LogManager.getLogger(this.getClass());
-
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        GenericDao userDao = new GenericDao(User.class);
+        GenericDao<User> userDao = new GenericDao(User.class);
         List<User> users = userDao.getAll();
-        req.setAttribute("users", users);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
-        dispatcher.forward(req, resp);
-    }
 
+        request.setAttribute("users", users);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        dispatcher.forward(request, response);
+    }
 }
 

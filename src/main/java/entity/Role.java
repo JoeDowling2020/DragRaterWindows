@@ -133,8 +133,9 @@ public class Role {
     public String toString() {
         return "Role{" +
                 "id=" + id +
-                ", userName='" + username + '\'' +
-                ", roleName='" + roleTitle + '\'' +
+                ", username='" + username + '\'' +
+                ", roleTitle='" + roleTitle + '\'' +
+                ", user=" + user +
                 '}';
     }
 }

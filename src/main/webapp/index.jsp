@@ -15,5 +15,18 @@
 <a href="admin.jsp">Admin Page</a>
 <p>Hello World!</p>
 
+<table>
+    <th>Username</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <c:forEach var="users" items="${users}">
+        <tr>
+            <td>${users.username}</td>
+            <td>${users.firstName}</td>
+            <td>${users.lastName}</td>
+        </tr>
+    </c:forEach>
+</table>
+
 </body>
 </html>
