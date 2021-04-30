@@ -32,6 +32,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "email")
+    private String email;
+
     @OneToMany(mappedBy= "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
@@ -44,18 +47,19 @@ public class User {
 
     /**
      * Instantiates a new User.
-     * @param id        the id
      * @param firstName the first name
      * @param lastName  the last name
      * @param username  the username
      * @param password  the password
+     * @param email the email
      */
-    public User(int id, String username, String password, String firstName, String lastName) {
-        this.id = id;
+    public User(String firstName, String lastName, String username, String password, String email) {
+        this();
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
+        this.email = email;
 
     }
 
@@ -189,18 +193,25 @@ public class User {
         this.ratings = ratings;
     }
 
-    /**
-     * Gets the role (admin/user) of the user
-     * @return the assigned role
-     */
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "id='" + id + '\'' +
-                "firstName ='" + firstName + '\'' +
-                "lastName ='" + lastName + '\'' +
-                "username ='" + username + '\'' +
-                "password ='" + password + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", roles=" + roles +
+                ", ratings=" + ratings +
                 '}';
     }
 
@@ -209,13 +220,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && username.equals(user.username);
+        return id == user.id && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(email, user.email) && Objects.equals(roles, user.roles) && Objects.equals(ratings, user.ratings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, username);
+        return Objects.hash(id, firstName, lastName, username, password, email, roles, ratings);
     }
-
-
 }
