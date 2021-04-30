@@ -57,17 +57,6 @@ public class GenericDao<T> {
         session.close();
         return entity;
     }
-    /**
-     * Gets an entity by id
-     * @param dragQueenId entity id to search by
-     * @return entity
-     */
-    public <T> T getByDragQueenId(int dragQueenId) {
-        Session session = getSession();
-        T entity = (T)session.get(type, dragQueenId);
-        session.close();
-        return entity;
-    }
 
     /**
      * Deletes the entity.
