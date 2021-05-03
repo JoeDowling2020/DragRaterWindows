@@ -14,6 +14,7 @@
 <body>
 <h1>Home Page</h1>
 <a href="admin.jsp">Admin Page</a>
+<a href="allQueens">Drag Queens</a>
 <p>Hello World!</p>
 
 <table>
@@ -28,6 +29,8 @@
         </tr>
     </c:forEach>
 </table>
+
+
 
 </body>
 </html>
