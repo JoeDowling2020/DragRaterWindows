@@ -17,13 +17,22 @@
     <tr>
         <th>Drag Queen</th>
         <th>Mug Shot</th>
+        <th>Dusted or Busted Score</th>
     </tr>
-    <c:forEach var="dragQueens" items="${dragQueens}">
+    <c:forEach var="dragQueens" items="${dragQueens}" varStatus="status">
     <tr>
         <td>${dragQueens.getName()}</td>
-        <td><img src="${dragQueens.getImageUrl()}"  width="500" height="600"></td>
+        <td><img src="${dragQueens.getImageUrl()}"  width="250" height="300"></td>
+
+        <td>
+
+            ${dobScore[status.index].getDobScore()}
+
+        </td>
+
     </tr>
     </c:forEach>
+
 </table>
 </body>
 </html>

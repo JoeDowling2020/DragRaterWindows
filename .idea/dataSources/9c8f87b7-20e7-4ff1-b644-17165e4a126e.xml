@@ -1032,7 +1032,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="294" parent="288" name="dobScore">
       <Position>3</Position>
-      <DataType>decimal(10)|0s</DataType>
+      <DataType>double|0s</DataType>
     </column>
     <key id="295" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>

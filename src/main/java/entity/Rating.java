@@ -62,7 +62,6 @@ public class Rating {
 
     /**
      * Instantiates a new role
-     * @param reviewId  the id of the reivew
      * @param user    the user's ID
      * @param dragQueen   the queen's ID
      * @param humour    humour score
@@ -77,9 +76,9 @@ public class Rating {
      * @param lyrics lyric writting score
      * @param brand brand score
      */
-    public Rating(int reviewId, User user, DragQueen dragQueen, int humour, int makeup, int hair, int fashion,
+    public Rating(User user, DragQueen dragQueen, int humour, int makeup, int hair, int fashion,
                   int personality, int dancing, int acting, int lipsync, int impersonation, int lyrics, int brand) {
-        this.reviewId = reviewId;
+        this();
         this.user = user;
         this.dragQueen = dragQueen;
         this.humour = humour;

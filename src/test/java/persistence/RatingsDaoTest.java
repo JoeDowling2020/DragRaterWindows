@@ -46,7 +46,7 @@ public class RatingsDaoTest {
         User user = (User)userDao.getById(1);
         int dragQueenId = dragQueen.getId();
         int userId = user.getId();
-        Rating newRating = new Rating(2, user, dragQueen, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+        Rating newRating = new Rating(user, dragQueen, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
         int newId = ratingDao.insert(newRating);
         Rating insertedRating = (Rating)ratingDao.getById(newId);
         assertEquals(userId, insertedRating.getUser().getId());
