@@ -11,7 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 
 /**
@@ -20,17 +22,27 @@ import java.io.IOException;
  * @author pwaite
  */
 
-@WebServlet(
-        urlPatterns = {"/loginAction"}
-)
-
-@Log4j2
+@WebServlet(name = "LoginAction", value = "/loginAction")
 public class LoginAction extends HttpServlet {
+    private GenericDao userDao = new GenericDao(User.class);
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.info("The logged in user: " + req.getRemoteUser() + " has a role of admin: " + req.isUserInRole("admin"));
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
-        dispatcher.forward(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+
+        String username = request.getRemoteUser();
+        logger.info("User " + username + " has logged in");
+
+        List<User> foundUser = (List<User>) userDao.getByPropertyEqual("username", username);
+        User user = foundUser.get(0);
+
+        request.setAttribute("username", username);
+        request.setAttribute("user", user);
+        session.setAttribute("user", user);
+
+        response.sendRedirect(request.getContextPath() + "/index");
+
     }
 }
 

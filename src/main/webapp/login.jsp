@@ -18,6 +18,7 @@
         <TR><TD>User name: <INPUT TYPE="TEXT" NAME="j_username">
         <TR><TD>Password: <INPUT TYPE="PASSWORD" NAME="j_password">
         <TR><TH><INPUT TYPE="SUBMIT" VALUE="Log In">
+        <input type="reset" value="Clear">
     </TABLE>
 </FORM>
 

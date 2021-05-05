@@ -23,13 +23,7 @@
     <tr>
         <td>${dragQueens.getName()}</td>
         <td><img src="${dragQueens.getImageUrl()}"  width="250" height="300"></td>
-
-        <td>
-
-            ${dobScore[status.index].getDobScore()}
-
-        </td>
-
+        <td>${dobScore[status.index].getDobScore()}</td>
     </tr>
     </c:forEach>
 
