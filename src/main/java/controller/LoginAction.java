@@ -22,7 +22,7 @@ import java.util.List;
  * @author pwaite
  */
 
-@WebServlet(name = "LoginAction", value = "/loginAction")
+@WebServlet(name = "LoginAction", value = "/login")
 public class LoginAction extends HttpServlet {
     private GenericDao userDao = new GenericDao(User.class);
     private final Logger logger = LogManager.getLogger(this.getClass());

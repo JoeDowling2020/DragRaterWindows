@@ -1,20 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
-  User: student
-  Date: 3/7/21
-  Time: 3:36 PM
+  User: Fractal Man
+  Date: 5/5/2021
+  Time: 7:25 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Admin</title>
+    <title>Home Page</title>
 </head>
 <body>
-<h1>Admin Page</h1>
-
-<a href="displayUsers">View Current Site Users</a>
-<a href="addNewQueen">Add A New Queen</a>
 
 </body>
 </html>

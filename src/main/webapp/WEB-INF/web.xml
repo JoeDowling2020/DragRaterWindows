@@ -27,7 +27,34 @@
         </auth-constraint>
     </security-constraint>
 
+    <!-- Authorize users via login action servlet when login button is pressed -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>login</web-resource-name>
+            <url-pattern>/login</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <!-- Authorize users via logout action servlet when logout button is pressed -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>logout</web-resource-name>
+            <url-pattern>/logout</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+
     <security-role>
         <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <role-name>user</role-name>
     </security-role>
 </web-app>

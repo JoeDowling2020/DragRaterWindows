@@ -15,20 +15,12 @@
 <h1>Home Page</h1>
 <a href="admin.jsp">Admin Page</a>
 <a href="allQueens">Drag Queens</a>
+<a href="login">Log In</a>
+<a href="logout">Log Out</a>
+<a href="submitRating">Submit A Rating</a>
+<a href="signUp">Sign Up</a>
 <p>Hello World!</p>
 
-<table>
-    <th>Username</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <c:forEach var="users" items="${users}">
-        <tr>
-            <td>${users.username}</td>
-            <td>${users.firstName}</td>
-            <td>${users.lastName}</td>
-        </tr>
-    </c:forEach>
-</table>
 
 
 

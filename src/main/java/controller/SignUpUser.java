@@ -1,6 +1,9 @@
 package controller;
 
+import entity.Role;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 
 import java.io.IOException;
@@ -14,10 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/signUp")
 public class SignUpUser extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     private GenericDao genericDao;
+    private GenericDao roleDao;
 
     public void init() {
         genericDao = new GenericDao(User.class);
+        roleDao = new GenericDao(Role.class);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -37,6 +43,12 @@ public class SignUpUser extends HttpServlet {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
 
+        System.out.println("firstname " + firstName);
+        System.out.println("lastname " + lastName);
+        System.out.println("uname " + username);
+        System.out.println("pass " + password);
+        System.out.println("email " + email);
+
         User user = new User();
         user.setFirstName(firstName);
         user.setLastName(lastName);
@@ -44,7 +56,15 @@ public class SignUpUser extends HttpServlet {
         user.setPassword(password);
         user.setEmail(email);
 
-        genericDao.saveOrUpdate(user);
+        Role role = new Role();
+        String userName = user.getUsername();
+        int userId = user.getId();
+        role.setUser(user);
+        role.setRoleTitle("user");
+        role.setUsername(userName);
+        role.setId(userId);
+        genericDao.insert(user);
+        roleDao.insert(role);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("signUpSuccess.jsp");
         dispatcher.forward(request, response);

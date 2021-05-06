@@ -15,15 +15,21 @@
 <h1>Drag Queens</h1>
 <table>
     <tr>
-        <th>Drag Queen</th>
+
         <th>Mug Shot</th>
+        <th>Drag Queen</th>
         <th>Dusted or Busted Score</th>
+        <th>Drag ID</th>
     </tr>
+    <c:set var="count" value="0" scope="page" />
     <c:forEach var="dragQueens" items="${dragQueens}" varStatus="status">
+        <c:set var="count" value="${count + 1}" scope="page"/>
     <tr>
-        <td>${dragQueens.getName()}</td>
+
         <td><img src="${dragQueens.getImageUrl()}"  width="250" height="300"></td>
+        <td>${dragQueens.getName()}</td>
         <td>${dobScore[status.index].getDobScore()}</td>
+<%--       <td><a href="submitRating?dragId=${dragQueens[status.index].getId()}">Rate Me!</a></td>--%>
     </tr>
     </c:forEach>
 

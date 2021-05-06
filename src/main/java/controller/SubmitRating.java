@@ -3,6 +3,8 @@ package controller;
 import entity.DragQueen;
 import entity.Rating;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 
 import java.io.IOException;
@@ -17,9 +19,12 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/submitRating")
 public class SubmitRating extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
     private GenericDao genericDao;
     private GenericDao userDao;
     private GenericDao queenDao;
+    private String dragqueenID;
 
     public void init() {
 
@@ -35,6 +40,10 @@ public class SubmitRating extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        dragqueenID = request.getParameter("id");
+        logger.info("This here is the drag queen ID! " + dragqueenID);
+
         response.sendRedirect("submitRating.jsp");
     }
 
@@ -44,7 +53,7 @@ public class SubmitRating extends HttpServlet {
         User webUser = (User) webSession.getAttribute("user");
         User user = (User) userDao.getById(webUser.getId());
 
-        String dragQueenId  = request.getParameter("dragQueenId");
+        String dragQueenId  = request.getParameter(dragqueenID);
         String humour = request.getParameter("humour");
         String makeup = request.getParameter("makeup");
         String hair = request.getParameter("hair");
