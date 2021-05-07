@@ -5,9 +5,7 @@ import entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
-
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,24 +35,13 @@ public class SignUpUser extends HttpServlet {
     }
 
     private void signUp(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String email = request.getParameter("email");
-
-        System.out.println("firstname " + firstName);
-        System.out.println("lastname " + lastName);
-        System.out.println("uname " + username);
-        System.out.println("pass " + password);
-        System.out.println("email " + email);
 
         User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setEmail(email);
+        user.setFirstName(request.getParameter("firstName"));
+        user.setLastName(request.getParameter("lastName"));
+        user.setUsername(request.getParameter("username"));
+        user.setPassword(request.getParameter("password"));
+        user.setEmail(request.getParameter("email"));
 
         Role role = new Role();
         String userName = user.getUsername();
