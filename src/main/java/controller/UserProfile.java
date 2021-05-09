@@ -47,9 +47,11 @@ public class UserProfile extends HttpServlet {
 
         HashMap<String, String> queenScore = new HashMap<String, String>();
 
+
         for (Rating rating: userRatings
              ) {
             String queenName = rating.getDragQueen().getName();
+            int ratingId = rating.getReviewId();
             double averageScore = (rating.getHumour() + rating.getHumour() + rating.getMakeup() + rating.getHair() +
                     rating.getFashion() + rating.getPersonality() + rating.getDancing() + rating.getActing() +
                     rating.getLipsync() + rating.getImpersonation() + rating.getBrand()) / 11;

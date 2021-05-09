@@ -18,6 +18,7 @@ import java.util.Properties;
 
 public class ApiDao implements PropertiesLoader {
     private final Logger logger = LogManager.getLogger();
+    //TODO make this part of properties file
     public static final String PROPERTIES_PATH = "/application.properties";
     public static final String PROPERTY_URL = "URL";
 

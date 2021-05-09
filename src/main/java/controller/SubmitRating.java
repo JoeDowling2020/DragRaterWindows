@@ -58,7 +58,8 @@ public class SubmitRating extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void submitRating (HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void submitRating (HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
 
         HttpSession webSession = request.getSession();
         User webUser = (User) webSession.getAttribute("user");

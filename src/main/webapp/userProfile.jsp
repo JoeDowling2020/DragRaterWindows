@@ -38,7 +38,6 @@
         <tr>
             <td>${queen.key}</td>
             <td>${queen.value}</td>
-
         </tr>
     </c:forEach>
 

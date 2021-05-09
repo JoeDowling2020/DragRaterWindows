@@ -1,4 +1,4 @@
-package controller;
+package Admin;
 
 import entity.Rating;
 import entity.User;
@@ -17,20 +17,17 @@ import java.util.List;
 
 @WebServlet(name = "displayUsers", value = "/displayUsers")
 public class DisplayUsers extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         GenericDao<User> userDao = new GenericDao(User.class);
         List<User> users = userDao.getAll();
 
-        for (User user: users
-        ) {
-            System.out.println(user);
-        }
-
         request.setAttribute("users", users);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/displayUsers.jsp");
         dispatcher.forward(request, response);
+
     }
 }
 

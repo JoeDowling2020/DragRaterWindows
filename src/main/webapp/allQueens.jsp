@@ -31,7 +31,6 @@
         <td>${dragQueens.getName()}</td>
         <td><a href="submitRating?action=add&dragQueenId=${dragQueens.getId()}">Rate Me</a></td>
         <td>${dobScore[status.index].getDobScore()}</td>
-<%--       <td><a href="submitRating?action=add&dragQueenId=${dragQueens[status.index].getId()}">Rate Me!</a></td>--%>
     </tr>
     </c:forEach>
 
