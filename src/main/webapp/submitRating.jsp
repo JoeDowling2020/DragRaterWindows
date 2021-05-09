@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Fractal Man
@@ -9,6 +10,21 @@
 <html>
 <head>
     <title>Submit Rating</title>
+
+    <table>
+        <th>Drag Queen</th>
+        <th>Mug Shot</th>
+        <th>Quote</th>
+
+        <tr>
+            <td><c:out value="${dragQueen.getName()}"/></td>
+            <td><img src="${dragQueen.getImageUrl()}"  width="250" height="300"></td>
+            <td><c:out value="${dragQueen.getQuote()}"/></td>
+        </tr>
+
+    </table>
+
+
     <form action="submitRating" METHOD="POST">
         <label for="humour">Humour</label>
         <select name="humour" id="humour">

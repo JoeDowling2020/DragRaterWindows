@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dragRaceAPI.DragQueensItem;
+import entity.DragQueen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import util.PropertiesLoader;
@@ -35,5 +36,19 @@ public class ApiDao implements PropertiesLoader {
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         List<DragQueensItem> dragQueens = mapper.readValue(response, new TypeReference<List<DragQueensItem>>(){});
         return dragQueens;
+    }
+
+    public DragQueensItem getDragQueen(int id) throws Exception {
+
+        Client client = ClientBuilder.newClient();
+        String apiBase = "http://www.nokeynoshade.party/api/queens/";
+        String targetQueen = Integer.toString(id);
+        String clientTarget = apiBase.concat(targetQueen);
+        WebTarget target = client.target(clientTarget);
+        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        DragQueensItem dragQueen = mapper.readValue(response, DragQueensItem.class);
+        return dragQueen;
     }
 }

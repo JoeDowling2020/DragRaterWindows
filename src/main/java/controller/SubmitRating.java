@@ -5,6 +5,7 @@ import entity.Rating;
 import entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import persistence.ApiDao;
 import persistence.GenericDao;
 
 import java.io.IOException;
@@ -45,9 +46,16 @@ public class SubmitRating extends HttpServlet {
         importedQueenId = Integer.parseInt(request.getParameter("dragQueenId"));
         logger.info("This here is the drag queen ID! " + importedQueenId);
 
-        System.out.println(importedQueenId);
+        ApiDao apiDao = new ApiDao();
+        try {
+            request.setAttribute("dragQueen", apiDao.getDragQueen(importedQueenId));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        response.sendRedirect("submitRating.jsp");
+        //response.sendRedirect("submitRating.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/submitRating.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void submitRating (HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
