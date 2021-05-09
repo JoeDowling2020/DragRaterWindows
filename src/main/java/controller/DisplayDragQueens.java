@@ -1,6 +1,7 @@
 package controller;
 
 import entity.DragQueen;
+import entity.Rating;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import persistence.ApiDao;
@@ -36,6 +37,7 @@ public class DisplayDragQueens extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("/allQueens.jsp");
         dispatcher.forward(req, resp);
     }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Fractal Man
@@ -16,52 +17,34 @@
     <th>First Name</th>
     <th>Last Name</th>
     <th>Email</th>
-    <c:forEach var="user" items="${user}">
+
         <tr>
-            <td>${user.username}</td>
-            <td>${user.firstName}</td>
-            <td>${user.lastName}</td>
-            <td>${user.email}</td>
+            <td><c:out value="${user.username}"/></td>
+            <td><c:out value="${user.firstName}"/></td>
+            <td><c:out value="${user.lastName}"/></td>
+            <td><c:out value="${user.email}"/></td>
         </tr>
-    </c:forEach>
+
 </table>
 
 <table>
     <tr>
-        <th>DragQueen ID</th>
         <th>DragQueen Name</th>
-        <th>Humour</th>
-        <th>Makeup</th>
-        <th>Hair</th>
-        <th>Fashion</th>
-        <th>Personality</th>
-        <th>Dancing</th>
-        <th>Acting</th>
-        <th>Lipsync</th>
-        <th>Impersonation</th>
-        <th>Lyrics</th>
-        <th>Brand</th>
+        <th>User Score</th>
     </tr>
-    <c:set var="count" value="0" scope="page" />
-    <c:forEach var="ratings" items="${rating}">
-        <c:set var="count" value="${count + 1}" scope="page"/>
-        <tr>
 
-            <td>${rating.dragqueenId}</td>
-            <td>${queen[status.index].queenName}</td>
-            <td>${rating.humour}</td>
-            <td>${rating.makeup}</td>
-            <td>${rating.hair}</td>
-            <td>${rating.fashion}</td>
-            <td>${rating.personality}</td>
-            <td>${rating.dancing}</td>
-            <td>${rating.acting}</td>
-            <td>${rating.lipsync}</td>
-            <td>${rating.impersonation}</td>
-            <td>${rating.lyrics}</td>
-            <td>${rating.brand}</td>
+    <c:forEach var="queen" items="${queen}">
+
+        <tr>
+            <td>${queen.key}</td>
+            <td>${queen.value}</td>
+
         </tr>
     </c:forEach>
+
 </table>
+
+<a href="editProfile">Edit Your Profile</a>
+
 </body>
 </html>

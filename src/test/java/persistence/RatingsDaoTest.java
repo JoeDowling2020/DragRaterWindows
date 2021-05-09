@@ -76,8 +76,8 @@ public class RatingsDaoTest {
 
     @Test
     void getByPropertyEqualSuccess() {
-        List<Rating> ratings = ratingDao.getByPropertyEqual("userId", "5");
-        assertEquals(0 ,ratings.size());
+        List<Rating> ratings = ratingDao.getByPropertyEqual("humour", "1");
+        assertEquals(1 ,ratings.size());
     }
 
 

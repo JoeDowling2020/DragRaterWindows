@@ -19,6 +19,7 @@
 <a href="logout">Log Out</a>
 <a href="submitRating">Submit A Rating</a>
 <a href="signUp">Sign Up</a>
+<a href="userProfile">Profile</a>
 <p>Hello World!</p>
 
 

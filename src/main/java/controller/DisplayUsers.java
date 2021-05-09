@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Rating;
 import entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,6 +22,11 @@ public class DisplayUsers extends HttpServlet {
 
         GenericDao<User> userDao = new GenericDao(User.class);
         List<User> users = userDao.getAll();
+
+        for (User user: users
+        ) {
+            System.out.println(user);
+        }
 
         request.setAttribute("users", users);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/displayUsers.jsp");

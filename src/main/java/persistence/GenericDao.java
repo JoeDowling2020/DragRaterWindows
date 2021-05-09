@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.criteria.*;
+
+import entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -126,6 +128,21 @@ public class GenericDao<T> {
         CriteriaQuery<T> query = builder.createQuery( type );
         Root<T> root = query.from(type );
         query.select(root).where(builder.equal(root.get(propertyName), value));
+        List<T> entities = session.createQuery( query ).getResultList();
+
+        session.close();
+        return entities;
+    }
+
+    public List<T> getByPropertyEqualToObject(String propertyName, User user) {
+        Session session = getSession();
+
+        logger.debug("Searching for user with " + propertyName + " = " + user);
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery( type );
+        Root<T> root = query.from(type );
+        query.select(root).where(builder.equal(root.get(propertyName), user));
         List<T> entities = session.createQuery( query ).getResultList();
 
         session.close();

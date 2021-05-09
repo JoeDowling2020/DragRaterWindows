@@ -24,13 +24,14 @@ public class SubmitRating extends HttpServlet {
     private GenericDao genericDao;
     private GenericDao userDao;
     private GenericDao queenDao;
-    private String dragqueenID;
+    private int importedQueenId;
 
     public void init() {
 
         genericDao = new GenericDao(Rating.class);
         userDao = new GenericDao(User.class);
         queenDao = new GenericDao(DragQueen.class);
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -41,8 +42,10 @@ public class SubmitRating extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        dragqueenID = request.getParameter("id");
-        logger.info("This here is the drag queen ID! " + dragqueenID);
+        importedQueenId = Integer.parseInt(request.getParameter("dragQueenId"));
+        logger.info("This here is the drag queen ID! " + importedQueenId);
+
+        System.out.println(importedQueenId);
 
         response.sendRedirect("submitRating.jsp");
     }
@@ -53,7 +56,6 @@ public class SubmitRating extends HttpServlet {
         User webUser = (User) webSession.getAttribute("user");
         User user = (User) userDao.getById(webUser.getId());
 
-        String dragQueenId  = request.getParameter(dragqueenID);
         String humour = request.getParameter("humour");
         String makeup = request.getParameter("makeup");
         String hair = request.getParameter("hair");
@@ -66,7 +68,6 @@ public class SubmitRating extends HttpServlet {
         String lyrics = request.getParameter("lyrics");
         String brand = request.getParameter("brand");
 
-        int dragQueenInt = Integer.parseInt(dragQueenId);
         int humourInt = Integer.parseInt(humour);
         int makeupInt = Integer.parseInt(makeup);
         int hairInt = Integer.parseInt(hair);
@@ -81,7 +82,7 @@ public class SubmitRating extends HttpServlet {
 
         Rating newRating = new Rating();
         newRating.setUser(user);
-        DragQueen dragQueen = (DragQueen)queenDao.getById(dragQueenInt);
+        DragQueen dragQueen = (DragQueen)queenDao.getById(importedQueenId);
         newRating.setDragQueen(dragQueen);
         newRating.setHumour(humourInt);
         newRating.setMakeup(makeupInt);
