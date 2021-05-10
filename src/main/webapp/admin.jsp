@@ -18,6 +18,5 @@
 <a href="displayReviews">View Current Site Reviews</a>
 <a href="addNewQueen">Add A New Queen</a>
 
-
 </body>
 </html>
