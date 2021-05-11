@@ -1,4 +1,4 @@
-package util;
+package dragrater.properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

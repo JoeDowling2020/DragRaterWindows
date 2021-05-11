@@ -1,11 +1,11 @@
-package persistence;
+package dragrater.persistence;
 
-import entity.User;
-import entity.DragQueen;
-import entity.Rating;
+import dragrater.entity.User;
+import dragrater.entity.DragQueen;
+import dragrater.entity.Rating;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import util.Database;
+import dragrater.properties.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
@@ -79,4 +79,5 @@ public class DragQueenDaoTest {
         assertEquals(1, queens.size());
         assertEquals(2, queens.get(0).getId());
     }
+
 }

@@ -1,7 +1,7 @@
-package controller;
+package dragrater.controller;
 
-import entity.User;
-import persistence.GenericDao;
+import dragrater.entity.User;
+import dragrater.persistence.GenericDao;
 import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

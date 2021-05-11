@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Fractal Man
-  Date: 5/6/2021
-  Time: 3:36 PM
+  Date: 5/10/2021
+  Time: 3:59 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -24,12 +24,24 @@
     <div class="bg-circle-3 bg-circle"></div>
     <div class="bg-circle-4 bg-circle"></div>
 </header>
-
 <div class="center">
-<h1>Your Signed Up Queen!</h1>
+<table>
+    <tr>
+        <th>Mug Shot</th>
+        <th>Drag Queen</th>
+        <th>Quote</th>
+        <th>D.O.B. Score</th>
+        <th>DragRater Score</th>
+    </tr>
+    <tr>
+        <td><img src="${dragQueen.getImageUrl()}"  width="250" height="300"></td>
+        <td><c:out value="${dragQueen.getName()}"/></td>
+        <td><c:out value="${dragQueen.getQuote()}"/></td>
+        <td>${dobScore}</td>
+        <td><c:out value="${score}"/></td>
+    </tr>
 
-<a href="index.jsp">Take It Home Now</a>
+</table>
 </div>
-<c:out value="${footer}" escapeXml="false"/>
 </body>
 </html>

@@ -1,13 +1,13 @@
-package persistence;
+package dragrater.persistence;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dragRaceAPI.DragQueensItem;
-import entity.DragQueen;
+import dragrater.dragRaceAPI.DragQueensItem;
+//import dragrater.properties.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import util.PropertiesLoader;
+
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -16,7 +16,8 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Properties;
 
-public class ApiDao implements PropertiesLoader {
+
+public class ApiDao {
     private final Logger logger = LogManager.getLogger();
     //TODO make this part of properties file
     public static final String PROPERTIES_PATH = "/application.properties";
@@ -24,9 +25,9 @@ public class ApiDao implements PropertiesLoader {
 
     private Properties properties;
 
-    public ApiDao() {
-        properties = loadProperties(PROPERTIES_PATH);
-    }
+//    public ApiDao() {
+//        properties = loadProperties(PROPERTIES_PATH);
+//    }
 
     public List<DragQueensItem> getAllDragQueens() throws Exception {
 

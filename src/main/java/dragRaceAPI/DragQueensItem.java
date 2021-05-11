@@ -1,4 +1,4 @@
-package dragRaceAPI;
+package dragrater.dragRaceAPI;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

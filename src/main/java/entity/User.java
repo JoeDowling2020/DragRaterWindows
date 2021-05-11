@@ -1,4 +1,4 @@
-package entity;
+package dragrater.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;

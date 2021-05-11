@@ -1,11 +1,11 @@
-package persistence;
+package dragrater.persistence;
 
-import entity.DragQueen;
-import entity.Rating;
-import entity.User;
+import dragrater.entity.DragQueen;
+import dragrater.entity.Rating;
+import dragrater.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import util.Database;
+import dragrater.properties.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
@@ -77,8 +77,11 @@ public class RatingsDaoTest {
     @Test
     void getByPropertyEqualSuccess() {
         List<Rating> ratings = ratingDao.getByPropertyEqual("humour", "1");
+
         assertEquals(1 ,ratings.size());
     }
+
+
 
 
 }

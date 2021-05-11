@@ -1,4 +1,4 @@
-package entity;
+package dragrater.entity;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.Objects;
@@ -20,7 +20,7 @@ public class Rating {
 
     @ManyToOne
     @JoinColumn(name = "dragQueenId",
-            foreignKey = @ForeignKey(name = "ratings_drag_queen_dragQueenId_fk"))
+            foreignKey = @ForeignKey(name = "ratings_drag_queen_dragQueenId_fk"), referencedColumnName="dragQueenId")
     private DragQueen dragQueen;
 
     @Column(name = "humour")
@@ -317,6 +317,7 @@ public class Rating {
     public void setBrand(int brand) {
         this.brand = brand;
     }
+
 
     @Override
     public boolean equals(Object o) {

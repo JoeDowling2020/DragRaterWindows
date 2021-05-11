@@ -13,10 +13,11 @@
         <property name="hibernate.c3p0.timeout">300</property>
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
-        <mapping class="entity.User"/>
-        <mapping class="entity.Role"/>
-        <mapping class="entity.Rating"/>
-        <mapping class="entity.DragQueen"/>
+        <mapping class="dragrater.entity.User"/>
+        <mapping class="dragrater.entity.Role"/>
+        <mapping class="dragrater.entity.Rating"/>
+        <mapping class="dragrater.entity.DragQueen"/>
+
 
     </session-factory>
 </hibernate-configuration>

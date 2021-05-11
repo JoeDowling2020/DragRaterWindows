@@ -1,4 +1,4 @@
-package entity;
+package dragrater.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
@@ -38,6 +38,7 @@ public class DragQueen {
         this.name = name;
         this.dobScore = dobScore;
     }
+
 
     /**
      * Get the drag queens ID

@@ -1,11 +1,11 @@
-package persistence;
+package dragrater.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.criteria.*;
 
-import entity.User;
+import dragrater.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;

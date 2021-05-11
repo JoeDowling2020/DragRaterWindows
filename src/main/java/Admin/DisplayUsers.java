@@ -1,10 +1,10 @@
-package Admin;
+package dragrater.Admin;
 
-import entity.Rating;
-import entity.User;
+import dragrater.entity.Rating;
+import dragrater.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import persistence.GenericDao;
+import dragrater.persistence.GenericDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

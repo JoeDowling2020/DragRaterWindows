@@ -1,9 +1,9 @@
-package persistence;
+package dragrater.persistence;
 
-import entity.User;
+import dragrater.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import util.Database;
+import dragrater.properties.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;

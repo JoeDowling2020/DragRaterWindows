@@ -1,9 +1,9 @@
-package nokeynoshade;
+package dragrater.nokeynoshade;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dragRaceAPI.DragQueensItem;
-import entity.DragQueen;
+import dragrater.dragRaceAPI.DragQueensItem;
+import dragrater.entity.DragQueen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;

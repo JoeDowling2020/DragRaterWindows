@@ -1,11 +1,11 @@
-package controller;
+package dragrater.controller;
 
-import entity.DragQueen;
-import entity.Rating;
+import dragrater.entity.DragQueen;
+import dragrater.entity.Rating;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import persistence.ApiDao;
-import persistence.GenericDao;
+import dragrater.persistence.ApiDao;
+import dragrater.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,11 +24,13 @@ public class DisplayDragQueens extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     private GenericDao queenDao;
+    private GenericDao ratingDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ApiDao apiDao = new ApiDao();
         queenDao = new GenericDao(DragQueen.class);
+        ratingDao = new GenericDao(Rating.class);
         List<DragQueen> dragQueens = queenDao.getAll();
         req.setAttribute("dobScore", dragQueens);
 

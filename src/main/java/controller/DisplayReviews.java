@@ -1,10 +1,10 @@
-package controller;
+package dragrater.controller;
 
-import entity.DragQueen;
-import entity.Rating;
+import dragrater.entity.DragQueen;
+import dragrater.entity.Rating;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import persistence.GenericDao;
+import dragrater.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
