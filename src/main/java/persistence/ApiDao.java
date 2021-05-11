@@ -16,19 +16,17 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Properties;
 
-
+/**
+ * API Dao
+ */
 public class ApiDao {
     private final Logger logger = LogManager.getLogger();
-    //TODO make this part of properties file
-    public static final String PROPERTIES_PATH = "/application.properties";
-    public static final String PROPERTY_URL = "URL";
 
-    private Properties properties;
-
-//    public ApiDao() {
-//        properties = loadProperties(PROPERTIES_PATH);
-//    }
-
+    /**
+     * Gets all drag queens from the api
+     * @return List<DragQueensItem> List of dragqueen info
+     * @throws Exception whether or not an exception has occured
+     */
     public List<DragQueensItem> getAllDragQueens() throws Exception {
 
         Client client = ClientBuilder.newClient();
@@ -40,6 +38,11 @@ public class ApiDao {
         return dragQueens;
     }
 
+    /**
+     * Gets one drag queen from the api
+     * @return DragQueensItem Object of dragqueen info
+     * @throws Exception whether or not an exception has occured
+     */
     public DragQueensItem getDragQueen(int id) throws Exception {
 
         Client client = ClientBuilder.newClient();
