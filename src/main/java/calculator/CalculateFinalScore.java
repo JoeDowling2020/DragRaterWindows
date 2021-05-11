@@ -61,18 +61,12 @@ public class CalculateFinalScore {
             finalAverage = finalAverage / finalRating.size();
 
             Double dobScore = targetQueen.getDobScore();
-            System.out.println("dobscore: " + dobScore);
 
             finalScore = finalAverage + dobScore;
-            System.out.println("finalAverage " + finalAverage);
         } else {
             finalScore = 0.0;
         }
         // return final score
-
-        System.out.println("final score" + finalScore);
-
-        System.out.println();
         return finalScore;
     }
 
