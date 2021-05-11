@@ -32,4 +32,5 @@ The goal of this project is to create a fun and interactive space to meet other 
 
 <h2>Project Plan</h2>
 
-<a>Weekly Reflection</a>
+<a href="weeklyreflection.md">Weekly Reflection</a>
+<a href="https://www.youtube.com/watch?v=6Ox_OlXfGPw">Video Demo<a>

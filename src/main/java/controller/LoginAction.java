@@ -46,7 +46,7 @@ public class LoginAction extends HttpServlet {
         request.setAttribute("user", user);
         session.setAttribute("user", user);
 
-        response.sendRedirect(request.getContextPath() + "/index");
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
 
     }
 }
