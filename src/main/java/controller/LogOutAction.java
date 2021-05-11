@@ -13,8 +13,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * This servlet handles requests made for logging a user or admin into the web application through the login button.
- * @author pjcraig
+ * This Class represents a servlet which returns the user to the homepage
+ * upon being logged out
+ * @author jdowling
  */
 @WebServlet(
         name = "LogoutAction",

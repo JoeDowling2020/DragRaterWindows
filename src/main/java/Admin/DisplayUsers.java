@@ -14,10 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-
+/**
+ * This class displays the sites current users
+ * to the admin page
+ */
 @WebServlet(name = "displayUsers", value = "/displayUsers")
 public class DisplayUsers extends HttpServlet {
 
+    /**
+     * This method retrieves all users from the database and passes
+     * them for display on the JSP
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException ServletException Whether or not the servlet encounters an error.
+     * @throws IOException IOException Whether or not an IO exception occurs.
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

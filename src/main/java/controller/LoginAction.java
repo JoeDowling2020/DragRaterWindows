@@ -17,9 +17,9 @@ import java.util.List;
 
 
 /**
- * A simple servlet whose purpose is to redirect to the home page
+ * Class represents a servlet which redirects to the index page
  * after a log in attempt
- * @author pwaite
+ * @author jdowling
  */
 
 @WebServlet(name = "LoginAction", value = "/login")
@@ -27,6 +27,13 @@ public class LoginAction extends HttpServlet {
     private GenericDao userDao = new GenericDao(User.class);
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * After user logs in refirects to the home page
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException ServletException Whether or not the servlet encounters an error.
+     * @throws IOException IOException Whether or not an IO exception occurs.
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();

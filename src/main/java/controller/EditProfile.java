@@ -17,6 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Class represents a servlet
+ * Allows the user to ediit their profile
+ */
 @WebServlet(
         name = "editProfile", urlPatterns = {"/editProfile"} )
 public class EditProfile extends HttpServlet {
@@ -34,17 +38,39 @@ public class EditProfile extends HttpServlet {
 
     }
 
+    /**
+     * Redirects to the JSP
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException ServletException Whether or not the servlet encounters an error.
+     * @throws IOException IOException Whether or not an IO exception occurs.
+     */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        resp.sendRedirect("editProfile.jsp");
+        response.sendRedirect("editProfile.jsp");
     }
 
+    /**
+     * Calls the updateUser method
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException ServletException Whether or not the servlet encounters an error.
+     * @throws IOException IOException Whether or not an IO exception occurs.
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         updateUser(request, response);
     }
 
+    /**
+     * Retrieves the parameters from the HTML form
+     * Updates the user in the database
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException ServletException Whether or not the servlet encounters an error.
+     * @throws IOException IOException Whether or not an IO exception occurs.
+     */
     private void updateUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         HttpSession webSession = request.getSession();

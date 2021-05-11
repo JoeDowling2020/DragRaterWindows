@@ -9,9 +9,9 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>DragRater Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://maven.apache.org</url>
+  <name>DragRater</name>
+
+  <url>http://3.129.84.239:8080/Drag%20Rater/index.jsp</url>
 
   <properties>
     <junit-platform-runner-version>1.0.0</junit-platform-runner-version>

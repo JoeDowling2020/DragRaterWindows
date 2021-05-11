@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Class to remove ratings from the database via the admin page
+ */
 @WebServlet("/removeRating")
 public class RemoveRating extends HttpServlet {
 
@@ -20,10 +23,21 @@ public class RemoveRating extends HttpServlet {
     private GenericDao ratingDao;
     private int importedReview;
 
+    /**
+     * Method to set up Rating Dao
+     */
     public void init() {
         ratingDao = new GenericDao(Rating.class);
     }
 
+    /**
+     * Method to take the review ID to be deleted
+     * and remove it from the database
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException ServletException Whether or not the servlet encounters an error.
+     * @throws IOException IOException Whether or not an IO exception occurs.
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         importedReview = Integer.parseInt(request.getParameter("reviewId"));

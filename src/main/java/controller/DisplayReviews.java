@@ -1,6 +1,5 @@
 package dragrater.controller;
 
-import dragrater.entity.DragQueen;
 import dragrater.entity.Rating;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,21 +14,32 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * This class represents a servlet
+ * it retrieves the user reviews for display on a JSP
+ */
 @WebServlet(
         name = "displayReviews", urlPatterns = {"/displayReviews"} )
 public class DisplayReviews extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
     private GenericDao ratingDao;
 
+    /**
+     * Calls the addQueen Method
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException ServletException Whether or not the servlet encounters an error.
+     * @throws IOException IOException Whether or not an IO exception occurs.
+     */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         ratingDao = new GenericDao(Rating.class);
         List<Rating> allRatings = ratingDao.getAll();
-        req.setAttribute("ratings", allRatings);
+        request.setAttribute("ratings", allRatings);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/displayReviews.jsp");
-        dispatcher.forward(req, resp);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/displayReviews.jsp");
+        dispatcher.forward(request, response);
     }
 }

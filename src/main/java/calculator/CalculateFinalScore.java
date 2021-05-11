@@ -9,69 +9,57 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Class to calculate the final dragrater score
+ */
 public class CalculateFinalScore {
 
     private GenericDao ratingDao;
     private GenericDao queenDao;
 
-
-
-    public Double getRating(DragQueen targetQueen) {
-        System.out.println("target queen" + targetQueen);
+    public void init() {
         ratingDao = new GenericDao(Rating.class);
         queenDao = new GenericDao(DragQueen.class);
+    }
+
+    /** Method to take a drag queen and average out their ratings
+     * before combing them with the susted or busted score and returning it
+     * @param targetQueen the queen whos score is being calulated
+     * @return final score
+     */
+    public Double getRating(DragQueen targetQueen) {
+
+        //Declare variables used
         Set<Rating> ratingList = targetQueen.getRatings();
-        System.out.println("ratingList: " + ratingList);
         Double finalScore;
+        List<Double> finalRating = new ArrayList<>();
+        Double finalAverage = null;
+        double averageRating;
+
+        //Check if queen has been rated at all yet if not return 0.0
         if (ratingList.size() != 0) {
-            List<Double> finalRating = new ArrayList<>();
-            Double finalAverage = null;
-            double averageRating;
+            //Each rating is averaged
             for (Rating rating: ratingList
             ) {
-                System.out.println("rating: " + rating);
-                System.out.println("rating.getMakeup" + rating.getMakeup());
                 averageRating = (rating.getMakeup() +  rating.getHumour() + rating.getHair() + rating.getFashion()
                         + rating.getPersonality() + rating.getDancing() + rating.getActing() + rating.getLipsync()
                         + rating.getImpersonation() + rating.getLyrics() + rating.getBrand()) / 11;
-                System.out.println("Average Rating: " + averageRating);
                 finalRating.add(averageRating);
             }
-            System.out.println("final rating: " + finalRating);
+           // The new list of ratings is averaged
             for (Double averagedRating: finalRating
             ) {
                 finalAverage = averagedRating + averagedRating;
             }
+            // Final number is combined with DOB score
             finalAverage = finalAverage / finalRating.size();
             Double dobScore = targetQueen.getDobScore();
             finalScore = finalAverage + dobScore;
         } else {
             finalScore = 0.0;
         }
-
-
-//        List<Rating> siteRating = ratingDao.getByPropertyEqual("dragQueenId", dragqueenId);
-//        List<Double> finalRating = null;
-//        for (Rating rating: siteRating
-//             ) {
-//        double averageRating = rating.getMakeup() +  rating.getHumour() + rating.getHair() + rating.getFashion()
-//                + rating.getPersonality() + rating.getDancing() + rating.getActing() + rating.getLipsync()
-//                + rating.getImpersonation() + rating.getLyrics() + rating.getBrand() / 11;
-//        finalRating.add(averageRating);
-//        }
-//
-//        Double finalAverage = null;
-//        for (Double averagedRating: finalRating
-//             ) {
-//           finalAverage = averagedRating + averagedRating;
-//        }
-//        finalAverage = finalAverage / finalRating.size();
-//        int dragqueenInt = Integer.parseInt(dragqueenId);
-//        DragQueen currentQueen = (DragQueen)queenDao.getById(dragqueenInt);
-//        Double dobScore = currentQueen.getDobScore();
-//        Double finalScore = finalAverage + dobScore;
-        System.out.println("finalScore" + finalScore);
-            return finalScore;
+        // return final score
+        return finalScore;
     }
 
 }
