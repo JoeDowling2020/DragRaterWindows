@@ -11,7 +11,7 @@ The goal of this project is to create a fun and interactive space to meet other 
 <li>Individual log ins</li>
 <li>Security Authentication - Tomcat's JDBC Realm Authentication</li>
 <li>ORM Framework: Hibernate 5</li>
-<li>Data Validation: Bootstrap + Hibernation</li>
+<li>Data Validation: Bootstrap + Hibernate</li>
 <li>A database to store user input and existing stats - MySQL 8.0.21</li>
 <li>AWS hosting</li>
 <li>Logging with Log4J2</li>
@@ -23,11 +23,9 @@ The goal of this project is to create a fun and interactive space to meet other 
 
 <h2>Design</h2>
 <ul>
-<li><a>User Stories</a></li>
-<li><a>Tasks</a></li>
-<li><a>Screen Design</a></li>
-<li><a>Application Flow</a></li>
-<li><a>Database Design</a></li>
+<li><a href="DesignDocuments/userStories.md">User Stories</a></li>
+<li><a href="DesignDocuments/WireFrames">Screen Design</a></li>
+<li><a href="DesignDocuments/ERD.JPG">Database Design</a></li>
 </ul>
 
 <h2>Project Plan</h2>

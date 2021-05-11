@@ -21,3 +21,40 @@
 <li>Create Database</li>
 <li>Create JSPs</li>
 </ul>
+
+<h2>Week 5</h2>
+<ul>
+<li>Consume API</li>
+<li>Populate Database</li>
+<li>Create unit testing</li>
+<li>Populate JSPs create HTML forms etc.</li>
+</ul>
+
+
+<h2>Week 6</h2>
+<ul>
+<li>Implement Authentication</li>
+<li>Test deploy to AWS</li>
+<li>Create calculator class to get final score</li>
+<li>Make sure all planned functionality has been implemented</li>
+</ul>
+
+<h2>Week 7</h2>
+<ul>
+<li>Start implementing CSS</li>
+<li>Deploy and test for bugs, 404 errors etc.</li>
+<li>Create calculator class to get final score</li>
+<li>Make sure all planned functionality has been implemented</li>
+</ul>
+
+<h2>Week 8</h2>
+<ul>
+<li>Finish implementing CSS</li>
+<li>Implement java mail</li>
+</ul>
+
+<h2>Week 9</h2>
+<ul>
+<li>Code clean up</li>
+<li>Final Deployment</li>
+</ul>
