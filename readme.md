@@ -19,6 +19,7 @@ The goal of this project is to create a fun and interactive space to meet other 
 <li>Dependency Management – Maven</li>
 <li>HTML form and table manipulation</li>
 <li>Unit Testing: JUnit tests to achieve 80%+ code coverage</li>
+<li>jQuery Data Tables for search functionality + pagination</li>
 </ul>
 
 <h2>Design</h2>
