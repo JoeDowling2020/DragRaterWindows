@@ -1,8 +1,8 @@
 
-<Context docBase="DragRater_war" path="/DragRater_war" reloadable="true">
+<Context docBase="DragRater" path="/DragRater" reloadable="true">
     <Realm className="org.apache.catalina.realm.JDBCRealm"
            driverName="com.mysql.cj.jdbc.Driver"
-           connectionURL="jdbc:mysql://localhost:3306/dragrater?user=tomcat&amp;password=tomcat"
+           connectionURL="jdbc:mysql://localhost:3306/dragrater?user=root&amp;password=uBUs4XoxU9UsEw"
            userTable="users" userNameCol="username" userCredCol="password"
            userRoleTable="role" roleNameCol="role" >
     </Realm>
