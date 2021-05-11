@@ -1,7 +1,5 @@
 package dragrater.controller;
 
-import dragrater.entity.DragQueen;
-import dragrater.entity.Rating;
 import dragrater.entity.Role;
 import dragrater.entity.User;
 import org.apache.logging.log4j.LogManager;

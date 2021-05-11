@@ -16,6 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Class represents a servlet with two functions
+ * Firstly to display relevent information about the queen who is being rated
+ * Secondly to retrieve the rating and insert it into the database
+ */
 @WebServlet("/submitRating")
 public class SubmitRating extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
@@ -25,6 +30,9 @@ public class SubmitRating extends HttpServlet {
     private GenericDao queenDao;
     private int importedQueenId;
 
+    /**
+     * Method to initialise the Daos
+     */
     public void init() {
 
         genericDao = new GenericDao(Rating.class);
@@ -32,12 +40,26 @@ public class SubmitRating extends HttpServlet {
         queenDao = new GenericDao(DragQueen.class);
 
     }
-
+    /**
+     * Calls the submitRating Method
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException ServletException Whether or not the servlet encounters an error.
+     * @throws IOException IOException Whether or not an IO exception occurs.
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         submitRating(request, response);
     }
 
+    /**
+     * Retrieves dragqueen data from both the database and API
+     * to display on the webpage
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException ServletException Whether or not the servlet encounters an error.
+     * @throws IOException IOException Whether or not an IO exception occurs.
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -55,13 +77,23 @@ public class SubmitRating extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    /**
+     * Retrieves parameters from HTML form, creates new rating Object
+     * and inserts it into the database using the current users ID
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException ServletException Whether or not the servlet encounters an error.
+     * @throws IOException IOException Whether or not an IO exception occurs.
+     */
     private void submitRating (HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
+        //get the current user so the review is inserted correctly
         HttpSession webSession = request.getSession();
         User webUser = (User) webSession.getAttribute("user");
         User user = (User) userDao.getById(webUser.getId());
 
+        //retrieve parameters from the HTML form
         Rating newRating = new Rating();
         newRating.setUser(user);
         DragQueen dragQueen = (DragQueen)queenDao.getById(importedQueenId);
@@ -78,6 +110,7 @@ public class SubmitRating extends HttpServlet {
         newRating.setLyrics(Integer.parseInt(request.getParameter("lyrics")));
         newRating.setBrand(Integer.parseInt(request.getParameter("brand")));
 
+        //insert new rating
         genericDao.saveOrUpdate(newRating);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("ratingSuccess.jsp");

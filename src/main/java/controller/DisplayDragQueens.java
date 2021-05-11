@@ -1,7 +1,6 @@
 package dragrater.controller;
 
 import dragrater.entity.DragQueen;
-import dragrater.entity.Rating;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import dragrater.persistence.ApiDao;
